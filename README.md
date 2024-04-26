@@ -1,4 +1,4 @@
-# test_imgui_glfw
+# imgui_glfw_practics
 
 GLFW - https://www.glfw.org/
 

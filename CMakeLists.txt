@@ -9,6 +9,8 @@ SET(CMAKE_CXX_STANDARD 17)
 SET(IMGUI_DIR ./imgui)
 INCLUDE_DIRECTORIES(${IMGUI_DIR})
 
-ADD_EXECUTABLE(testing main.cpp ${IMGUI_DIR}/imgui_impl_glfw.cpp ${IMGUI_DIR}/imgui_impl_opengl3.cpp ${IMGUI_DIR}/imgui.cpp ${IMGUI_DIR}/imgui_draw.cpp ${IMGUI_DIR}/imgui_tables.cpp ${IMGUI_DIR}/imgui_widgets.cpp)
-target_link_libraries(testing OpenGL::GL)
-target_link_libraries(testing glfw)
+ADD_EXECUTABLE(testing main.cpp window.cpp gui.cpp shaders.cpp ${IMGUI_DIR}/imgui_impl_glfw.cpp ${IMGUI_DIR}/imgui_impl_opengl3.cpp ${IMGUI_DIR}/imgui.cpp ${IMGUI_DIR}/imgui_draw.cpp ${IMGUI_DIR}/imgui_tables.cpp ${IMGUI_DIR}/imgui_widgets.cpp)
+
+target_link_libraries(testing glfw GLEW OpenGL::GL)
+
+file(COPY ./shaders/ DESTINATION shaders)
